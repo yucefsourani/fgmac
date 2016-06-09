@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="MaxEntries" mtime="1464831678" type="int" value="15"/>
+	<entry name="TimerDelay" mtime="1464831678" type="int" value="500"/>
+	<entry name="TrackMouseSelections" mtime="1464831678" type="bool" value="false"/>
+</gconf>

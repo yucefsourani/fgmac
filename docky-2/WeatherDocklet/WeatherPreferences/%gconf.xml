@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="Location" mtime="1464832086" type="list" ltype="string">
+	</entry>
+	<entry name="Timeout" mtime="1464832086" type="int" value="30"/>
+	<entry name="Metric" mtime="1464832086" type="bool" value="false"/>
+	<entry name="Source" mtime="1464832086" type="string">
+		<stringvalue>Weather Underground</stringvalue>
+	</entry>
+</gconf>

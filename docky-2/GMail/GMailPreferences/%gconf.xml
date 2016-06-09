@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="NeedsAttention" mtime="1464832068" type="bool" value="true"/>
+	<entry name="RefreshRate" mtime="1464832068" type="int" value="15"/>
+	<entry name="User" mtime="1464832068" type="string">
+		<stringvalue></stringvalue>
+	</entry>
+	<entry name="Labels" mtime="1464832068" type="list" ltype="string">
+	</entry>
+</gconf>

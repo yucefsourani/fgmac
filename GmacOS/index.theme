@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=MBuntu-Y-For-Gnome-Fallback
+Comment=mb-a-x 14.10 Version
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=MBuntu-Y-For-Gnome-Fallback
+MetacityTheme=MBuntu-Y-For-Gnome-Fallback
+ButtonLayout=close,minimize,maximize:

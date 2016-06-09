@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="ShowQuit" mtime="1465485389" type="bool" value="true"/>
+	<entry name="ShowSettings" mtime="1465485389" type="bool" value="true"/>
+	<entry name="ShowDockyItem" mtime="1465485381" type="bool" value="true"/>
+	<entry name="Hue" mtime="1465485381" type="int" value="0"/>
+	<entry name="HoverText" mtime="1465485381" type="string">
+		<stringvalue>Docky</stringvalue>
+	</entry>
+</gconf>

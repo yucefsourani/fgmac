@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="AlwaysShowRecent" mtime="1464832055" type="bool" value="false"/>
+	<entry name="CurrentIndex" mtime="1464832055" type="int" value="0"/>
+	<entry name="NumRecentDocs" mtime="1464832055" type="int" value="7"/>
+</gconf>

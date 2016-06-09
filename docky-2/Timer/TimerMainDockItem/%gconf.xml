@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="DismissOnClick" mtime="1464832084" type="bool" value="true"/>
+	<entry name="AutoDismissTimers" mtime="1464832084" type="bool" value="false"/>
+	<entry name="AutoStartTimers" mtime="1464832084" type="bool" value="false"/>
+	<entry name="DefaultTimer" mtime="1464832084" type="int" value="60"/>
+</gconf>
