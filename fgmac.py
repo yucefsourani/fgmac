@@ -90,10 +90,12 @@ old_extension=get_all_extensions()
 ############################################################################################
 
 
-extensions_to_enable=["user-theme@gnome-shell-extensions.gcampax.github.com",\
-"places-menu@gnome-shell-extensions.gcampax.github.com",\
-"activities-config@nls1729","favorites@cvine.org","hide-dash@xenatt.github.com",\
-"Move_Clock@rmy.pobox.com","CoverflowAltTab@palatis.blogspot.com"]
+extensions_to_enable=["places-menu@gnome-shell-extensions.gcampax.github.com",\
+                      "apps-menu@gnome-shell-extensions.gcampax.github.com",\
+                      "launch-new-instance@gnome-shell-extensions.gcampax.github.com",\
+                      "activities-config@nls1729","favorites@cvine.org","hide-dash@xenatt.github.com",\
+                      "Move_Clock@rmy.pobox.com","CoverflowAltTab@palatis.blogspot.com",\
+                      "user-theme@gnome-shell-extensions.gcampax.github.com"]
 
 
 gsettings=["gsettings set org.gnome.desktop.background show-desktop-icons false",\
@@ -157,11 +159,12 @@ make_folders()
 
 def install_packs():
     check=subprocess.call("sudo dnf install  -y --best --allowerasing gnome-shell-extension-user-theme \
-                    gnome-shell-extension-places-menu dconf plymouth-plugin-script docky GConf2 gnome-tweak-tool",shell=True)
+                    gnome-shell-extension-places-menu dconf plymouth-plugin-script docky GConf2 gnome-tweak-tool \
+                    gnome-shell-extension-apps-menu",shell=True)
     if check!=0:
         sys.exit("Fail Check Your Internet || Check sudo .")
 
-    print ("Please Wait.")
+    print ("\nPlease Wait.\n")
     for extension in os.listdir("extensions"):
         if extension not in old_extension:
             subprocess.call("cp -r extensions/%s %s"%(extension, \
@@ -209,9 +212,10 @@ def fmac_docky():
 fmac_docky()
 
 if old_extension!=None:
-	for i in old_extension:
-		subprocess.call("gnome-shell-extension-tool -d %s"%i,shell=True)
-		time.sleep(0.5)
+    for i in old_extension:
+        if i not in extensions_to_enable:
+            subprocess.call("gnome-shell-extension-tool -d %s"%i,shell=True)
+            time.sleep(0.5)
 
 
 
@@ -220,7 +224,7 @@ for i in extensions_to_enable:
     os.path.isdir("/usr/share/gnome-shell/extensions/%s"%i)or \
     os.path.isdir("/usr/local/share/gnome-shell/extensions/%s"%i):
 		subprocess.call("gnome-shell-extension-tool -e  %s"%i,shell=True)
-		time.sleep(0.5)
+		time.sleep(1)
 
 
 
@@ -236,7 +240,9 @@ for conf in dconf:
 
 
 
-print ("Please Wait.")
+print ("\nPlease Wait.\n")
+print ("Please do not power off or unplug your machine.\n")
+
 subprocess.call("sudo plymouth-set-default-theme mbuntu -R",shell=True)
 subprocess.call("sudo dracut -f",shell=True)
 
