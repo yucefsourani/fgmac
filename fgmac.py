@@ -62,6 +62,7 @@ init_check()
 
 #############################################################################################
 home=os.getenv("HOME")
+dirname=os.path.abspath(os.path.dirname(__file__))
 def get_all_extensions():
 	result=[]
 	if os.path.isdir("%s/.local/share/gnome-shell/extensions"%home):
@@ -165,10 +166,9 @@ def install_packs():
         sys.exit("Fail Check Your Internet || Check sudo .")
 
     print ("\nPlease Wait.\n")
-    for extension in os.listdir("extensions"):
+    for extension in os.listdir("%s/extensions"%dirname):
         if extension not in old_extension:
-            subprocess.call("cp -r extensions/%s %s"%(extension, \
-                                                      "%s/.local/share/gnome-shell/extensions"%home),shell=True)
+            subprocess.call("cp -r %s/extensions/%s %s/.local/share/gnome-shell/extensions"%(dirname,extension,home),shell=True)
 
 
 
@@ -178,37 +178,41 @@ install_packs()
 
 
 def fmac_themes():
-    subprocess.call("cp -r Gmac GmacOS Gmac-Shell %s/.themes"%home,shell=True)
+    themes=["Gmac","GmacOS","Gmac-Shell"]
+    for d in themes :
+    	subprocess.call("cp -r %s/%s  %s/.themes"%(dirname,d,home),shell=True)
 
 fmac_themes()
 
 
 
 def fmac_icons():
-    subprocess.call("cp -r Gmac-icons Gmac-Cursor  logo-top.png   %s/.icons"%home,shell=True)
+    icons=["Gmac-icons","Gmac-Cursor","logo-top.png"]
+    for i in icons:
+    	subprocess.call("cp -r %s/%s   %s/.icons"%(dirname,i,home),shell=True)
 
 fmac_icons()
 
 
 
 def fmac_backgrounds():
-    subprocess.call("cp -r gnome %s/Pictures"%home,shell=True)
+    subprocess.call("cp -r %s/gnome %s/Pictures"%(dirname,home),shell=True)
 
 fmac_backgrounds()
 
 
 
 def fmac_plymouth():
-    subprocess.call("sudo cp -r mbuntu /usr/share/plymouth/themes/",shell=True)
+    subprocess.call("sudo cp -r %s/mbuntu /usr/share/plymouth/themes/"%dirname,shell=True)
 
 fmac_plymouth()
 
 
 def fmac_docky():
     gc="%gconf.xml"
-    subprocess.call("cp  docky.desktop %s/.config/autostart"%home,shell=True)
-    subprocess.call("cp -r docky-2 %s/.config/gconf/apps"%home,shell=True)
-    subprocess.call("cp  %s %s/.config/gconf/apps"%(gc,home),shell=True)
+    subprocess.call("cp  %s/docky.desktop %s/.config/autostart"%(dirname,home),shell=True)
+    subprocess.call("cp -r %s/docky-2 %s/.config/gconf/apps"%(dirname,home),shell=True)
+    subprocess.call("cp  %s/%s %s/.config/gconf/apps"%(dirname,gc,home),shell=True)
 fmac_docky()
 
 if old_extension!=None:
@@ -246,4 +250,4 @@ print ("Please do not power off or unplug your machine.\n")
 subprocess.call("sudo plymouth-set-default-theme mbuntu -R",shell=True)
 subprocess.call("sudo dracut -f",shell=True)
 
-print("Please Reboot System.")
+print("\nPlease Reboot System.\n")
